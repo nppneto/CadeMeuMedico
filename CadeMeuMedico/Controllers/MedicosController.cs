@@ -31,13 +31,13 @@ namespace CadeMeuMedico.Controllers
 
         // Envia os dados preenchidos nos campos para o banco
         [HttpPost]
-        public ActionResult Adicionar(Medicos Medicos)
+        public ActionResult Adicionar(Medicos medicos)
         {
             // Se a validação do model estiver OK...
             if(ModelState.IsValid)
             {
                 // Insere no banco
-                db.Medicos.Add(Medicos);
+                db.Medicos.Add(medicos);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -45,7 +45,7 @@ namespace CadeMeuMedico.Controllers
             // Retorna a view com os dados inseridos anteriormente
             ViewBag.IDCidade = new SelectList(db.Cidades, "IDCidade", "Nome");
             ViewBag.IDEspecialidade = new SelectList(db.Especialidades, "IDEspecialidade", "Nome");
-            return View(Medicos);
+            return View(medicos);
         }
 
         public ActionResult Editar(long id)
@@ -60,19 +60,19 @@ namespace CadeMeuMedico.Controllers
         }
 
         [HttpPost]
-        public ActionResult Editar(Medicos Medicos)
+        public ActionResult Editar(Medicos medicos)
         {
             if(ModelState.IsValid)
             {
-                db.Entry(Medicos).State = EntityState.Modified;
+                db.Entry(medicos).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
             // Retorna para a view com os dados inseridos anteriormente
-            ViewBag.IDCidade = new SelectList(db.Cidades, "IDCidade", "Nome", Medicos.IDCidade);
-            ViewBag.IDEspecialidade = new SelectList(db.Especialidades, "IDEspecialidades", "Nome", Medicos.IDCidade);
-            return View(Medicos);
+            ViewBag.IDCidade = new SelectList(db.Cidades, "IDCidade", "Nome", medicos.IDCidade);
+            ViewBag.IDEspecialidade = new SelectList(db.Especialidades, "IDEspecialidades", "Nome", medicos.IDCidade);
+            return View(medicos);
         }
 
         //Será implementado com Ajax

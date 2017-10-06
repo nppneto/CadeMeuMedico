@@ -4,7 +4,16 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="CadeMeuMedicoBDModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="CadeMeuMedicoBDModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="BannersPublicitarios">
+          <Key>
+            <PropertyRef Name="IDBanner" />
+          </Key>
+          <Property Name="IDBanner" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TituloCampanha" Type="varchar" MaxLength="60" Nullable="false" />
+          <Property Name="BannerCampanha" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="LinkBanner" Type="varchar" MaxLength="200" Nullable="false" />
+        </EntityType>
         <EntityType Name="Cidades">
           <Key>
             <PropertyRef Name="IDCidade" />
@@ -70,6 +79,7 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="CadeMeuMedicoBDModelStoreContainer">
+          <EntitySet Name="BannersPublicitarios" EntityType="Self.BannersPublicitarios" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Cidades" EntityType="Self.Cidades" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Especialidades" EntityType="Self.Especialidades" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Medicos" EntityType="Self.Medicos" Schema="dbo" store:Type="Tables" />
@@ -88,6 +98,15 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="CadeMeuMedicoBDModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="BannersPublicitarios">
+          <Key>
+            <PropertyRef Name="IDBanner" />
+          </Key>
+          <Property Name="IDBanner" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TituloCampanha" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="BannerCampanha" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LinkBanner" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
         <EntityType Name="Cidades">
           <Key>
             <PropertyRef Name="IDCidade" />
@@ -157,6 +176,7 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="EntidadesCadeMeuMedicoBD" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="BannersPublicitarios" EntityType="Self.BannersPublicitarios" />
           <EntitySet Name="Cidades" EntityType="Self.Cidades" />
           <EntitySet Name="Especialidades" EntityType="Self.Especialidades" />
           <EntitySet Name="Medicos" EntityType="Self.Medicos" />
@@ -176,6 +196,16 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="CadeMeuMedicoBDModelStoreContainer" CdmEntityContainer="EntidadesCadeMeuMedicoBD">
+          <EntitySetMapping Name="BannersPublicitarios">
+            <EntityTypeMapping TypeName="CadeMeuMedicoBDModel.BannersPublicitarios">
+              <MappingFragment StoreEntitySet="BannersPublicitarios">
+                <ScalarProperty Name="IDBanner" ColumnName="IDBanner" />
+                <ScalarProperty Name="TituloCampanha" ColumnName="TituloCampanha" />
+                <ScalarProperty Name="BannerCampanha" ColumnName="BannerCampanha" />
+                <ScalarProperty Name="LinkBanner" ColumnName="LinkBanner" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Cidades">
             <EntityTypeMapping TypeName="CadeMeuMedicoBDModel.Cidades">
               <MappingFragment StoreEntitySet="Cidades">
@@ -236,7 +266,7 @@
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
         <DesignerProperty Name="EnablePluralization" Value="false" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
-        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
       </DesignerInfoPropertySet>
     </Options>

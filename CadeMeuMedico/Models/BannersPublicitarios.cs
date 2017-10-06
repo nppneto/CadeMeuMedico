@@ -12,12 +12,11 @@ namespace CadeMeuMedico.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Usuarios
+    public partial class BannersPublicitarios
     {
-        public long IDUsuario { get; set; }
-        public string Nome { get; set; }
-        public string Login { get; set; }
-        public string Senha { get; set; }
-        public string Email { get; set; }
+        public long IDBanner { get; set; }
+        public string TituloCampanha { get; set; }
+        public string BannerCampanha { get; set; }
+        public string LinkBanner { get; set; }
     }
 }

@@ -26,12 +26,11 @@
                 </a>
             </div>
             <div class="collapse navbar-collapse">
-                <ul class="navbar navbar-nav">
-                    <li class="active"><a href="#">Home</a></li>
-                    <li id="menuMedicos">
-                        <!--Nome a ser exibido, Action, Url a ser chamada-->
-                        @Html.ActionLink("Médicos", "Index", "Medicos")
-                    </li>
+                <ul class="nav navbar-nav">
+                    <li id="menuHome">@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li id="menuMedicos">@Html.ActionLink("Médicos", "Index", "Medicos")</li>
+                    <li id="menuEspecialidades">@Html.ActionLink("Especialidades", "Index", "Especialidades")</li>
+                    <li id="menuCidades">@Html.ActionLink("Cidades", "Index", "Cidades")</li>  
                 </ul>
             </div>
         </div>

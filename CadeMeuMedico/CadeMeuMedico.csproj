@@ -153,6 +153,7 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="App_Code\BannersPublicitarios.cshtml" />
     <EntityDeploy Include="Models\ModeloDeDados.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>ModeloDeDados.Designer.cs</LastGenOutput>
@@ -160,6 +161,10 @@
     <Content Include="Models\ModeloDeDados.edmx.diagram">
       <DependentUpon>ModeloDeDados.edmx</DependentUpon>
     </Content>
+    <None Include="scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="scripts\jquery-1.10.2.js" />
+    <Content Include="scripts\jquery-1.10.2.min.js" />
+    <Content Include="scripts\jquery-1.10.2.min.map" />
     <None Include="scripts\jquery-3.2.1.intellisense.js" />
     <Content Include="scripts\bootstrap.js" />
     <Content Include="scripts\bootstrap.min.js" />
@@ -167,6 +172,11 @@
     <Content Include="scripts\jquery-3.2.1.min.js" />
     <Content Include="scripts\jquery-3.2.1.slim.js" />
     <Content Include="scripts\jquery-3.2.1.slim.min.js" />
+    <None Include="scripts\jquery.validate-vsdoc.js" />
+    <Content Include="scripts\jquery.validate.js" />
+    <Content Include="scripts\jquery.validate.min.js" />
+    <Content Include="scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Web.config" />
     <Content Include="Views\Layout.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
@@ -174,11 +184,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CidadesController.cs" />
+    <Compile Include="Controllers\EspecialidadesController.cs" />
     <Compile Include="Controllers\MedicosController.cs" />
     <Compile Include="Controllers\MensagensController.cs" />
     <Compile Include="Controllers\TesteLayoutController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BannersPublicitarios.cs">
+      <DependentUpon>ModeloDeDados.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Cidades.cs">
       <DependentUpon>ModeloDeDados.tt</DependentUpon>
@@ -188,10 +203,10 @@
       <DependentUpon>ModeloDeDados.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\EspecialidadesMetadado.cs" />
-    <Compile Include="Models\MedicosMetadado.cs" />
     <Compile Include="Models\Medicos.cs">
       <DependentUpon>ModeloDeDados.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\MedicosMetadado.cs" />
     <Compile Include="Models\ModeloDeDados.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -207,10 +222,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ModeloDeDados.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\UsuariosMetadado.cs" />
     <Compile Include="Models\Usuarios.cs">
       <DependentUpon>ModeloDeDados.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\UsuariosMetadado.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -224,6 +239,12 @@
     <Content Include="Views\Medicos\Index.cshtml" />
     <Content Include="Views\Medicos\Adicionar.cshtml" />
     <Content Include="Views\Medicos\Editar.cshtml" />
+    <Content Include="Views\Cidades\Adicionar.cshtml" />
+    <Content Include="Views\Cidades\Editar.cshtml" />
+    <Content Include="Views\Cidades\Index.cshtml" />
+    <Content Include="Views\Especialidades\Index.cshtml" />
+    <Content Include="Views\Especialidades\Adicionar.cshtml" />
+    <Content Include="Views\Especialidades\Editar.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
