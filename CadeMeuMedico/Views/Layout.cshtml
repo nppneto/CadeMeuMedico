@@ -1,0 +1,48 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Cadê meu Médico? - @ViewBag.Title</title>
+    <link href="@Url.Content("~/Content/bootstrap.min.css")" rel="stylesheet" />
+
+    <style>
+        body{
+            padding-top:60px;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top"> 
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">
+                    Cadê meu médico?
+                </a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="navbar navbar-nav">
+                    <li class="active"><a href="#">Home</a></li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        @RenderBody()
+    </div>
+
+    <script src="@Url.Content("~/scripts/jquery-3.2.1.min.js")">
+    </script>
+    <script src="@Url.Content("~/scripts/bootstrap.min.js")">
+    </script>
+    @RenderSection("script", required: false);
+
+</body>
+</html>
