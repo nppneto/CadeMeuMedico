@@ -36,7 +36,8 @@
             @Html.DisplayFor(modelItem => item.IDEspecialidade)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            <!--Link - Action-->                   <!--id recebe o IDMedico correspondente a linha selecionada-->
+            @Html.ActionLink("Editar", "Editar", new { id=item.IDMedico }) |
             @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
             @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
         </td>
