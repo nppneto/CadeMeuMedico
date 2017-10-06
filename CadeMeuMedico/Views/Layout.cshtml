@@ -28,7 +28,10 @@
             <div class="collapse navbar-collapse">
                 <ul class="navbar navbar-nav">
                     <li class="active"><a href="#">Home</a></li>
-
+                    <li id="menuMedicos">
+                        <!--Nome a ser exibido, Action, Url a ser chamada-->
+                        @Html.ActionLink("Médicos", "Index", "Medicos")
+                    </li>
                 </ul>
             </div>
         </div>
@@ -38,11 +41,11 @@
         @RenderBody()
     </div>
 
-    <script src="@Url.Content("~/scripts/jquery-3.2.1.min.js")">
+    <script src="@Url.Content("~/Scripts/jquery-3.2.1.min.js")">
     </script>
-    <script src="@Url.Content("~/scripts/bootstrap.min.js")">
+    <script src="@Url.Content("~/Scripts/bootstrap.min.js")">
     </script>
-    @RenderSection("script", required: false);
+    @RenderSection("Scripts", required: false);
 
 </body>
 </html>
